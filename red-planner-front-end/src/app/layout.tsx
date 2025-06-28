@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Noto_Sans } from 'next/font/google'
+import React from 'react'
 import { Toaster } from 'sonner'
 
 import { SITE_NAME } from '@/constants/seo.constants'
