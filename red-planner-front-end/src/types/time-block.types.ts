@@ -1,4 +1,4 @@
-import { IBase } from "./root.types"
+import type { IBase } from './root.types'
 
 export interface ITimeBlockResponse extends IBase {
 	name: string
@@ -8,5 +8,5 @@ export interface ITimeBlockResponse extends IBase {
 }
 
 export type TypeTimeBlockFormState = Partial<
-Omit <ITimeBlockResponse, 'createdAt' | 'updatedAt' >
+	Omit<ITimeBlockResponse, 'createdAt' | 'updatedAt'>
 >
