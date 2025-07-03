@@ -1,7 +1,7 @@
 import { DropResult } from '@hello-pangea/dnd'
 
-import { FILTERS } from '@/app/tasks/columns.data'
-import { useUpdateTask } from '@/app/tasks/hooks/useUpdateTask'
+import { FILTERS } from '@/app/i/tasks/columns.data'
+import { useUpdateTask } from '@/app/i/tasks/hooks/useUpdateTask'
 
 export function useTaskDnd() {
 	const { updateTask } = useUpdateTask()

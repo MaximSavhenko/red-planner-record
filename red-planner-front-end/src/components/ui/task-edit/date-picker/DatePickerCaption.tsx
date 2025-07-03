@@ -1,4 +1,5 @@
 import dayjs from 'dayjs'
+import { type Formatters } from 'react-day-picker'
 
 const seasonEmoji: Record<string, string> = {
 	winter: '⛄️',
@@ -7,28 +8,17 @@ const seasonEmoji: Record<string, string> = {
 	autumn: '🍂'
 }
 
-const getSeason = (month: Date): keyof typeof seasonEmoji => {
-	const monthNumber = month.getMonth() + 1
-
-	if (monthNumber > 2 && monthNumber < 6) return 'spring'
-	if (monthNumber > 5 && monthNumber < 9) return 'summer'
-	if (monthNumber > 8 && monthNumber < 12) return 'autumn'
-	else return 'winter'
+const getSeason = (date: Date): keyof typeof seasonEmoji => {
+	const m = date.getMonth() + 1
+	if (m > 2 && m < 6) return 'spring'
+	if (m > 5 && m < 9) return 'summer'
+	if (m > 8 && m < 12) return 'autumn'
+	return 'winter'
 }
 
-export const formatCaption = (month: Date) => {
-	const season = getSeason(month)
-
-	return (
-		<>
-			<span
-				role='img'
-				aria-label={season}
-				className='mr-2'
-			>
-				{seasonEmoji[season]}
-			</span>
-			{dayjs(month).format('MMMM')}
-		</>
-	)
+export const customFormatters: Partial<Formatters> = {
+	formatCaption: (date: Date) => {
+		const season = getSeason(date)
+		return `${seasonEmoji[season]} ${dayjs(date).format('MMMM')}`
+	}
 }

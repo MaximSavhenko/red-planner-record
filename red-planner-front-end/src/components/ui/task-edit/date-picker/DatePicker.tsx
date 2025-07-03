@@ -8,7 +8,7 @@ import 'react-day-picker/dist/style.css'
 
 import { useOutside } from '@/hooks/useOutside'
 
-import { formatCaption } from './DatePickerCaption'
+import { customFormatters } from './DatePickerCaption'
 
 dayjs.extend(LocalizedFormat)
 
@@ -74,7 +74,7 @@ export function DatePicker({
 						selected={selected}
 						onSelect={handleDaySelect}
 						weekStartsOn={1}
-						formatters={{ formatCaption }}
+						formatters={customFormatters}
 					/>
 				</div>
 			)}

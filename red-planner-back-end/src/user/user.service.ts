@@ -1,6 +1,5 @@
 import { Injectable } from '@nestjs/common'
 import { hash } from 'argon2'
-import { retry } from 'rxjs'
 import { AuthDto } from 'src/auth/dto/auth.dto'
 import { PrismaService } from 'src/prisma.service'
 import { UserDto } from './dto/user.dto'
@@ -29,7 +28,7 @@ export class UserService {
 		const profile = await this.getByID(id)
 
 		const totalTasks = profile.tasks.length
-		const complitedTasks = await this.prisma.task.count({
+		const completedTasks = await this.prisma.task.count({
 			where: {
 				userId: id,
 				isCompleted: true
@@ -63,7 +62,7 @@ export class UserService {
 			user: rest,
 			statistics: [
 				{ label: 'Total', value: totalTasks },
-				{ label: 'Completed tasks', value: complitedTasks },
+				{ label: 'Completed tasks', value: completedTasks },
 				{ label: 'Today tasks', value: todayTasks },
 				{ label: 'Week tasks', value: weekTasks }
 			]
