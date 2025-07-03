@@ -1,0 +1,59 @@
+.container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem; /* gap-2 */
+}
+
+.roundsContainer {
+	display: flex;
+	gap: 0.75rem; /* gap-3 */
+	align-items: center;
+	justify-content: center;
+	margin-top: 0.25rem; /* mt-1 */
+}
+
+.button {
+	opacity: 0.2;
+	transition: opacity 0.2s ease;
+	margin-top: 0.25rem; /* mt-1 */
+
+	&:hover {
+		opacity: 1;
+	}
+
+	&:disabled {
+		opacity: 0.2;
+	}
+}
+
+.round {
+	border-radius: 0.375rem; /* rounded */
+	border: 1px solid #262626; /* border-border */
+	width: 1.25rem; /* w-5 */
+	height: 1.25rem; /* h-5 */
+	position: relative;
+
+	&::before {
+		background-color: #3b82f6; /* bg-primary, замени на свой цвет */
+		border-top-left-radius: 0.375rem;
+		border-bottom-left-radius: 0.375rem;
+		transition: all 0.3s ease;
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 0%;
+		height: 100%;
+	}
+
+	&.active::before {
+		transition-duration: 1s; /* duration-1000 */
+		width: 40%;
+	}
+
+	&.completed::before {
+		border-radius: 0.375rem; /* rounded */
+		width: 100%;
+	}
+}
