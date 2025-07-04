@@ -5,11 +5,11 @@ import { Heading } from '@/components/ui/Heading';
 import { Pomodoro } from './Pomodoro';
 
 export const metadata: Metadata = {
-  title: 'PageTitle',
+  title: 'Pomodoro timer',
   ...NO_INDEX_PAGE
 }
 
-export default function page() {
+export default function PomodoroPage() {
   return <div>
     <Heading title='Pomodoro timer' />
     <Pomodoro />
