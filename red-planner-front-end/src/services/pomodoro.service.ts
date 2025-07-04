@@ -7,7 +7,7 @@ import {
 import { axiosWithAuth } from '@/api/interceptors'
 
 class PomodoroService {
-	private BASE_URL = '/user/trimer'
+	private BASE_URL = '/user/timer'
 
 	async getTodaySession() {
 		const response = await axiosWithAuth.get<IPomodoroSessionResponse>(
