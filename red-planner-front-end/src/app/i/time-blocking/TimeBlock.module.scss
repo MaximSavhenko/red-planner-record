@@ -1,0 +1,31 @@
+.list {
+	.block {
+		border-radius: 0.375rem; /* rounded */
+		margin-bottom: 0.75rem; /* mb-3 */
+		padding: 1rem; /* p-4 */
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		font-size: 0.875rem; /* text-sm */
+
+		&:hover .grip,
+		&:active .grip {
+			opacity: 1;
+		}
+	}
+}
+
+.grip {
+	opacity: 0.25;
+	transition: opacity 0.2s ease;
+	margin-left: -0.25rem; /* -ml-1 */
+	margin-right: 0.125rem; /* mr-0.5 */
+
+	&:hover,
+	&:active {
+		.grip {
+			opacity: 1;
+		}
+	}
+}
